@@ -1,4 +1,4 @@
-﻿from app.config import settings
+from app.config import settings
 from app.schemas import ExplanationRequest, ExplanationResponse
 from google import genai
 import logging
@@ -71,24 +71,31 @@ Referable: {request.aiResult.referable}
 Grad-CAM Available: {'Yes' if request.explainability and request.explainability.image else 'No'}
 '''
 
-        try:
-            response = self.client.models.generate_content(
-                model=self.model_name,
-                contents=prompt,
-                config=genai.types.GenerateContentConfig(
-                    system_instruction=SYSTEM_INSTRUCTION,
-                    temperature=0.2
+        import time
+        max_retries = 3
+        base_delay = 1
+
+        for attempt in range(max_retries):
+            try:
+                response = self.client.models.generate_content(
+                    model=self.model_name,
+                    contents=prompt,
+                    config=genai.types.GenerateContentConfig(
+                        system_instruction=SYSTEM_INSTRUCTION,
+                        temperature=0.2
+                    )
                 )
-            )
-            
-            return ExplanationResponse(
-                success=True,
-                explanation=response.text,
-                model=self.model_name
-            )
-        except Exception as e:
-            logger.error(f"Gemini API Error: {e}")
-            return ExplanationResponse(
-                success=False,
-                error="AI explanation service unavailable"
-            )
+                
+                return ExplanationResponse(
+                    success=True,
+                    explanation=response.text,
+                    model=self.model_name
+                )
+            except Exception as e:
+                logger.error(f"Gemini API Error (attempt {attempt + 1}/{max_retries}): {e}")
+                if attempt == max_retries - 1:
+                    return ExplanationResponse(
+                        success=False,
+                        error="AI explanation service unavailable"
+                    )
+                time.sleep(base_delay * (2 ** attempt))
