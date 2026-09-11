@@ -1,5 +1,5 @@
-﻿import os
-from pydantic_settings import BaseSettings
+import os
+from pydantic_settings import BaseSettings, SettingsConfigDict
 
 class Settings(BaseSettings):
     matlab_mode: str = os.getenv("MATLAB_MODE", "mock")
@@ -10,7 +10,7 @@ class Settings(BaseSettings):
     gemini_model: str = os.getenv("GEMINI_MODEL", "gemini-2.5-flash-lite")
     gemini_explanation_enabled: bool = os.getenv("GEMINI_EXPLANATION_ENABLED", "true").lower() == "true"
     
-    class Config:
-        env_file = ".env"
+    model_config = SettingsConfigDict(env_file=".env", extra="ignore")
 
 settings = Settings()
+
