@@ -30,3 +30,17 @@ class ScreeningResponse(BaseModel):
     processedImage: Optional[str] = None
     aiResult: Optional[AiResult] = None
     explainability: Optional[Explainability] = None
+
+class ExplanationRequest(BaseModel):
+    screeningId: str
+    status: Literal['COMPLETED', 'UNGRADABLE', 'ERROR']
+    quality: QualityDetail
+    aiResult: Optional[AiResult] = None
+    explainability: Optional[Explainability] = None
+
+class ExplanationResponse(BaseModel):
+    success: bool
+    explanation: Optional[str] = None
+    model: str = "gemini-2.5-flash-lite"
+    disclaimer: str = "This explanation is generated from the AI screening output and model-attention visualization. It does not replace professional clinical evaluation."
+    error: Optional[str] = None

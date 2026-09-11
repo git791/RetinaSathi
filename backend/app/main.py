@@ -3,7 +3,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from app.routes import screening
 from app.config import settings
 
-app = FastAPI(title="RetinaSathi API", version="0.1.0")
+app = FastAPI(title="NetraMitra API", version="0.1.0")
 
 app.add_middleware(
     CORSMiddleware,
@@ -19,6 +19,6 @@ app.include_router(screening.router)
 def health_check():
     return {
         "status": "ok",
-        "service": "retinasathi-backend",
+        "service": "netramitra-backend",
         "matlab": "not_connected" if settings.matlab_mode != "compiled" else "compiled"
     }

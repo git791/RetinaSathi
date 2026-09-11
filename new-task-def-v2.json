@@ -1,0 +1,65 @@
+{
+  "family": "netramitra-backend-task",
+  "executionRoleArn": "arn:aws:iam::821421641429:role/netramitra-ecs-execution-role",
+  "networkMode": "awsvpc",
+  "containerDefinitions": [
+    {
+      "name": "netramitra-backend",
+      "image": "821421641429.dkr.ecr.ap-south-1.amazonaws.com/netramitra-backend:latest",
+      "cpu": 0,
+      "portMappings": [
+        {
+          "containerPort": 8000,
+          "hostPort": 8000,
+          "protocol": "tcp"
+        }
+      ],
+      "essential": true,
+      "environment": [
+        {
+          "name": "MATLAB_MODE",
+          "value": "compiled"
+        },
+        {
+          "name": "ALLOWED_ORIGINS",
+          "value": "*"
+        },
+        {
+          "name": "AGREE_TO_MATLAB_RUNTIME_LICENSE",
+          "value": "yes"
+        },
+        {
+          "name": "GEMINI_MODEL",
+          "value": "gemini-2.5-flash-lite"
+        },
+        {
+          "name": "GEMINI_EXPLANATION_ENABLED",
+          "value": "true"
+        }
+      ],
+      "mountPoints": [],
+      "volumesFrom": [],
+      "logConfiguration": {
+        "logDriver": "awslogs",
+        "options": {
+          "awslogs-group": "/ecs/netramitra-backend",
+          "awslogs-region": "ap-south-1",
+          "awslogs-stream-prefix": "ecs"
+        }
+      },
+      "systemControls": [],
+      "secrets": [
+        {
+          "name": "GEMINI_API_KEY",
+          "valueFrom": "arn:aws:secretsmanager:ap-south-1:821421641429:secret:netramitra/gemini-api-key-KNlIgn"
+        }
+      ]
+    }
+  ],
+  "requiresCompatibilities": [
+    "FARGATE"
+  ],
+  "cpu": "2048",
+  "memory": "8192",
+  "taskRoleArn": "arn:aws:iam::821421641429:role/netramitra-ecs-task-role"
+}

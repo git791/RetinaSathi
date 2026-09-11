@@ -1,8 +1,20 @@
-# RetinaSathi Backend
+# 👁️ NetraMitra Backend
 
-Python FastAPI backend serving as a bridge to the MATLAB screening engine.
+> **Smart India Hackathon (SIH) 2026** — Problem Statement ID 26038 (MathWorks)  
+> Python FastAPI backend bridging the MATLAB screening engine, Gemini LLM explainability, and Next.js frontend.
 
-## Setup
+## 👥 Project Team & Contributors
+
+- **BiBi Sufiya Shariff**
+- **Mohammed Ayaan Adil Ahmed**
+- **Likhitha Devan M**
+- **Mohith B S**
+- **Sinchana K A**
+- **Thilak D G**
+
+---
+
+## ⚡ Setup & Quick Start
 
 1. **Python Version**: Python 3.9+ recommended.
 2. **Virtual Environment**:
@@ -15,41 +27,24 @@ Python FastAPI backend serving as a bridge to the MATLAB screening engine.
    pip install -r requirements.txt
    ```
 4. **Environment Variables**:
-   Copy `.env.example` to `.env` and adjust variables.
-   - `MATLAB_MODE=mock` (Safe developer default for deterministic output)
-   - `MATLAB_MODE=compiled` (Requires `retinasathimodel` package installed)
+   Copy `.env.example` to `.env` and set:
+   - `MATLAB_MODE=mock` (Safe developer default)
+   - `MATLAB_MODE=compiled` (Requires MATLAB Runtime R2026a)
+   - `GEMINI_API_KEY=your_gemini_key`
 
-## Compiled MATLAB Mode Installation
-
-To run in compiled mode, you must install the MATLAB Compiler SDK package generated in Phase 9, and you MUST have MATLAB Runtime R2026a installed on your host OS.
-
-1. Ensure MATLAB Runtime R2026a (v10.1) is installed.
-2. Install the compiled package:
-   ```bash
-   pip install ../deployment/build
-   # Or install via the generated .whl directly
-   ```
-3. Start the server with `MATLAB_MODE=compiled`.
-
-## Running the Server
+## 🚀 Running the Server
 
 ```bash
 uvicorn app.main:app --reload --port 8000
 ```
 
-## Testing
+---
 
-```bash
-# Run tests in mock mode
-pytest tests/
+## 📖 Comprehensive Documentation
 
-# Run tests in compiled mode (includes real APTOS image integration test)
-# Note: Requires retinasathimodel installed in environment
-$env:MATLAB_MODE="compiled"
-pytest tests/
-```
+For complete problem statement specifications, deep learning pipeline details, dataset references (APTOS 2019, IDRiD, DRIVE, Messidor-2), frontend setup, and AWS deployment instructions, please view the [Main Project README](../README.md).
 
-## Endpoints
+---
 
-- `GET /health` - Health check status.
-- `POST /api/v1/screenings` - Accepts multipart/form-data with an `image` field.
+## 📜 License & Credits
+Developed under the **MIT License** for **Smart India Hackathon 2026** (Sponsored by MathWorks).

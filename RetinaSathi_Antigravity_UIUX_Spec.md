@@ -1,10 +1,10 @@
-# RetinaSathi --- Antigravity Product & UI/UX Build Specification
+# NetraMitra --- Antigravity Product & UI/UX Build Specification
 
 ## 1. Project Identity
 
 ### Recommended product name
 
-**RetinaSathi**
+**NetraMitra**
 
 **Meaning:** "Sathi" means companion. The name positions the system as
 an AI-assisted screening companion for frontline/rural healthcare
@@ -12,15 +12,15 @@ workflows rather than as an autonomous diagnostic authority.
 
 ### Recommended local project folder
 
-`RetinaSathi`
+`NetraMitra`
 
 ### Recommended GitHub repository
 
-`retinasathi-ai`
+`netramitra-frontend`
 
 ### Recommended application title
 
-**RetinaSathi --- Explainable AI Retinal Screening**
+**NetraMitra --- Explainable AI Retinal Screening**
 
 ### Recommended short tagline
 
@@ -40,7 +40,7 @@ already used by multiple eye-health projects/products. - **DrishtiSetu**
 an existing project. - **Netrika** --- already used by an
 eye-care/public-health organization and an unrelated consulting company.
 
-`RetinaSathi` had no obvious exact-match project collision in the
+`NetraMitra` had no obvious exact-match project collision in the
 searches performed and is therefore the recommended working name.
 
 **Important:** this is a practical web-collision check, not a trademark,
@@ -51,7 +51,7 @@ commercialization, perform formal trademark/domain/GitHub-owner checks.
 
 # 2. Product Intent
 
-RetinaSathi is an **explainable AI-assisted diabetic-retinopathy
+NetraMitra is an **explainable AI-assisted diabetic-retinopathy
 screening platform** designed for resource-constrained and rural
 healthcare workflows.
 
@@ -94,7 +94,7 @@ pillars:
 4.  **Adoption** --- integrate with existing workflows and reduce
     additional staff burden.
 
-For RetinaSathi, these translate into:
+For NetraMitra, these translate into:
 
 ### Principle A --- Decision first
 
@@ -322,7 +322,7 @@ identity.
 
 ### Components
 
--   RetinaSathi logo
+-   NetraMitra logo
 -   email / username
 -   password
 -   sign in
@@ -732,7 +732,7 @@ Generate a clean clinical-style report.
 
 ### Header
 
-RetinaSathi
+NetraMitra
 
 ### Screening information
 
@@ -857,7 +857,7 @@ Sections:
 -   Screening thresholds
 -   Audit log
 -   Privacy
--   About RetinaSathi
+-   About NetraMitra
 
 Do not expose dangerous model controls to ordinary operators.
 
@@ -870,7 +870,7 @@ Use a persistent left sidebar.
 Recommended order:
 
 ``` text
-RetinaSathi
+NetraMitra
 
 Overview
 New Screening
@@ -1382,7 +1382,7 @@ Never imply autonomous diagnosis.
 Recommended conceptual structure:
 
 ``` text
-retinasathi-ai/
+netramitra-frontend/
 │
 ├── app/
 │   ├── dashboard/
@@ -1564,7 +1564,7 @@ That is the core story of the product.
 
 ------------------------------------------------------------------------
 
-# 39. What Makes RetinaSathi Different
+# 39. What Makes NetraMitra Different
 
 The product should not be positioned merely as:
 
@@ -1572,7 +1572,7 @@ The product should not be positioned merely as:
 
 Instead:
 
-> **RetinaSathi is an explainable, quality-aware, human-in-the-loop
+> **NetraMitra is an explainable, quality-aware, human-in-the-loop
 > screening workflow designed to extend retinal screening capacity into
 > resource-constrained settings.**
 
@@ -1639,7 +1639,7 @@ Keep the result screen fast and understandable.
 
 ``` text
 PRODUCT
-RetinaSathi
+NetraMitra
 
 TAGLINE
 Explainable retinal screening, closer to every community.
@@ -1716,7 +1716,7 @@ The UI/UX direction is informed by:
 The Antigravity implementation is considered successful when a
 first-time user can:
 
-1.  understand what RetinaSathi does within 5 seconds
+1.  understand what NetraMitra does within 5 seconds
 2.  start a screening within 10 seconds
 3.  upload a retinal image
 4.  understand image quality status

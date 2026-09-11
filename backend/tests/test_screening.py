@@ -39,7 +39,7 @@ def test_valid_image_mock_mode():
 @pytest.mark.skipif(os.getenv("MATLAB_MODE") != "compiled", reason="Only run in compiled mode")
 def test_compiled_aptos_image():
     # The actual image path for the integration test
-    # tests/test_screening.py is 3 levels deep from RetinaSathi root
+    # tests/test_screening.py is 3 levels deep from NetraMitra root
     base_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..', '..', '..', '..'))
     img_path = os.path.join(base_dir, 'OneDrive', 'Desktop', 'Documents', 'MATLAB', 'data', 'APTOS', 'train_images', '000c1434d8d7.png')
     
